@@ -1,0 +1,9 @@
+semon circuit topology rules
+
+1. Circuits contain direction-agnostic pins, buses, virtual 3-pin gates, and subcircuit instances.
+2. A pin is not an input or output. Locked values drive propagation in whichever direction the local constraints imply.
+3. Every generated basic circuit is normalized to Virtual3PinGate constraints.
+4. A Virtual3PinGate has up to three pins and an 8-bit Truth-Byte. Bit index CBA selects the validity of a pin-state combination.
+5. Truth-Byte 0xFF is universal freedom and is skipped by propagation. Truth-Byte 0x00 is universal contradiction and aborts through diagnostics.
+6. Buffers and inverters are emulated with the equality and inverted equality truth tables, not separate component types.
+7. Composite circuits may instantiate existing circuits structurally. Each instance has independent pin state, locks, and boundary routing.

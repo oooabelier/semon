@@ -1,0 +1,8 @@
+semon mathematical assumptions
+
+1. Variables are unsigned bit-vectors with widths up to 65,536 bits.
+2. A mathematical model is a blueprint. It stores variables, constants, equations, inequalities, functions, AST nodes, and optional BDD/ESOP metadata, but it does not execute runtime signal values.
+3. Equations and inequalities are structural constraints. Compilation into a circuit happens only after an explicit command.
+4. AST nodes are allocated in homogeneous allocator pages with parent back-references.
+5. The parser accepts identifiers, integer constants, arithmetic, bitwise, shift, modulo, slice, concatenation, equality, inequality, and function-call forms.
+6. Built-in cryptographic functions are represented as native function-call AST nodes. The synthesis layer can map recognized built-ins to specialized flat constraints in later extensions.

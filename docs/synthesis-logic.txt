@@ -1,0 +1,9 @@
+semon synthesis logic
+
+1. The mathematical layer produces AST nodes through the parser and model APIs.
+2. The synthesis layer walks ASTs explicitly and emits flat circuit topology.
+3. Variables become ordered pin groups. Constants become locked pins.
+4. Boolean operations become Virtual3PinGate constraints with named Truth-Bytes.
+5. Relations become equality or comparison gates.
+6. User-defined and built-in functions are flattened during synthesis; no hidden runtime function frames remain in the generated basic circuit.
+7. Later cryptographic builders can replace generic gate emission with optimized native constraint graphs for MD5, SHA-256, SHA-512, SHA-3, AES, MODEXP, ECC, and ECDSA.

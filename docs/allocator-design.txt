@@ -1,0 +1,9 @@
+semon allocator design
+
+1. Persistent simulator data is allocated through core::PagedAllocator.
+2. Native pages are mapped with mmap on POSIX-like platforms and VirtualAlloc on Windows.
+3. Each page stores objects of one structural type for one parent container.
+4. Page headers store previous/next page links, parent pointer, object type, allocation counters, free-slot bitmap, and telemetry.
+5. Additional pages for the same parent/type are linked into a doubly linked page chain.
+6. Release marking increments dead counters without immediately moving objects.
+7. Compaction scans type-specific chains and uses linear block movement. Pointer remapping hooks are intentionally centralized so each structure type can add exact-field patching without a generic tracing collector.

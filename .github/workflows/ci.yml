@@ -1,0 +1,21 @@
+name: semon-ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install compiler
+        run: sudo apt-get update && sudo apt-get install -y clang make
+      - name: Build Debug
+        run: |
+          cd build
+          make OS=Linux ARCH=AMD64 MODE=Debug
+      - name: Run self tests
+        run: ./build/lxd/semon_test

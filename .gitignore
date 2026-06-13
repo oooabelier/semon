@@ -1,0 +1,8 @@
+build/
+.Xauthority
+.vscode/
+.idea/
+*.suo
+*.user
+*.log
+*.tmp
