@@ -7,9 +7,7 @@ namespace core {
 class Shell {
 public:
     Shell();
-
     int run(int argc, char** argv);
-
 private:
     bool running_;
 };
